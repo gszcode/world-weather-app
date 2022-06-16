@@ -1,8 +1,5 @@
-.App {
-  text-align: center;
-}
-
-.row {
+.cards {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }

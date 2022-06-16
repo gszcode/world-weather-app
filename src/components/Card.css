@@ -1,0 +1,55 @@
+.card {
+  margin: 20px;
+  width: 17rem;
+  background-color: rgba(246, 235, 235, 0.2);
+  color: #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  animation: mover 0.5s ease;
+}
+
+.card-title {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+#closeIcon button {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  color: #ccc;
+  top: -13px;
+  right: 0px;
+  border: none;
+  border-radius: 8px;
+  background-color: #cb899c;
+  display: none;
+  transition: all 0.5s ease;
+}
+
+#closeIcon button:hover {
+  color: #cb899c;
+  background-color: #ccc;
+  width: 32px;
+  height: 32px;
+  transition: all 0.5s ease;
+}
+
+.card-body {
+  margin-top: 0px !important;
+  padding-top: 0px !important;
+}
+
+.card:hover #closeIcon button {
+  display: block;
+}
+
+@keyframes mover {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
