@@ -2,17 +2,15 @@ import React, { useState } from "react";
 import "./App.css";
 import Cards from "./components/Cards";
 import Nav from "./components/Nav";
+let apiKey = process.env.REACT_APP_API_KEY;
 
 export default function App() {
   const [cities, setCities] = useState([]);
-
   // buscar ciudad
   function onSearch(ciudad) {
-    let apiKey = "a8c66ac3305729ce6b5d93c13df57c35";
-
     fetch(
       // llamada a la api
-      `http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`
     )
       .then((r) => r.json())
       .then((recurso) => {
@@ -30,7 +28,9 @@ export default function App() {
             latitud: recurso.coord.lat,
             longitud: recurso.coord.lon,
           };
-          setCities((oldCities) => [...oldCities, ciudad]);
+          const repeat = cities.find((city) => city.id === ciudad.id);
+          if (!repeat) setCities((oldCities) => [...oldCities, ciudad]);
+          else alert("Ciudad en pantalla");
         } else {
           alert("Ciudad no encontrada");
         }
